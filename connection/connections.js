@@ -7,8 +7,7 @@ const sequelize = new Sequelize(
     process.env.DB_PASSWORD, {
         host: 'localhost',
         dialect: 'mysql',
-        // port diff than localhost
-        port: 3002
+        socketPath: '/tmp/mysql.sock'
     }
 );
 
