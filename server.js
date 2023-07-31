@@ -1,5 +1,5 @@
 const express = require('express');
-// const routes = require('routes');
+const routes = require('./routes');
 const sequelize = require('./connection/connections');
 
 const app = express();
@@ -11,7 +11,7 @@ app.use(express.static('public'));
 // to allow processing of json body
 app.use(express.urlencoded({ extended: true}));
 //activate routes
-// app.use(routes);
+app.use(routes);
 
 sequelize.sync({ force: false}).then(() => {
     app.listen(PORT, (res, req) => {
