@@ -6,6 +6,7 @@ const User = require('../../models/Users');
 
 // create a new User 
 router.post('/', async (req, res) => {
+    console.log(req.body);
     try {
         const newUser = req.body;
         // hash the password

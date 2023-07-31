@@ -32,8 +32,11 @@ User.init({
 }, {
     sequelize,
     timestamps: false,
+    // prevents sequelize from pluralizing table name
     freezeTableName: true,
+    // snake_case 
     underscored: true,
+    // gives defalut table name 
     modelName: 'user'
     }
 );
