@@ -4,16 +4,15 @@ const bcrypt = require('bcrypt');
 // install the path to the sql js file
 const User = require('../../models/Users');
 
+
 // create a new User 
 router.post('/', async (req, res) => {
     try {
-        console.log(req.body);
         const newUser = req.body;
         // hash the password
         newUser.password = await bcrypt.hash(req.body.password, 10);
         // create newUser w the hashed password and save to DB
         const userData = await User.create(newUser);
-        console.log(userData)
         res.status(200).json(userData)
     } catch(err) {
         res.status(400).json(err)

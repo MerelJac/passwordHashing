@@ -13,6 +13,8 @@ app.use(express.urlencoded({ extended: true}));
 //activate routes
 app.use(routes);
 
+
 sequelize.sync({ force: false}).then(() => {
     app.listen(PORT, (res, req) => {
         console.log(`Listening on http://localhost:${PORT}`)})});
+
