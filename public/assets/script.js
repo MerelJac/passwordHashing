@@ -1,6 +1,5 @@
-// const { response } = require("express");
-
 const createUserForm = document.querySelector('#createUserForm');
+
 
 createUserForm.addEventListener('submit', (event) => {
     event.preventDefault();
@@ -23,5 +22,14 @@ createUserForm.addEventListener('submit', (event) => {
         }, 
         body: JSON.stringify(formData)
     }).then((response) => response.json())
-    .then((data) => console.log(data)).catch((err) => console.error(err))
+    .then((data) => {
+        console.log(data);
+        document.querySelector('#username').value = '';
+        document.querySelector('#email').value = '';
+        document.querySelector('#password').value = '';
+        let alert = document.createElement('p');
+        alert.textContent = 'Account saved & password encrypted.'
+        document.body.appendChild(alert);
+    }).catch((err) => console.error(err))
+
 });
