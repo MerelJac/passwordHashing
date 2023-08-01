@@ -1,0 +1,12 @@
+* {
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    line-height: 2;
+}
+
+#password {
+    margin-bottom: 30px;
+}
+
+input, #submit {
+    border-radius: 10px;
+}

@@ -3,5 +3,6 @@ const router = require('express').Router();
 const userRoutes = require('./userRoutes');
 // any fetch call started w /api will be sent to api folder
 router.use('/users', userRoutes);
+
 // to use in other files
 module.exports = router;
