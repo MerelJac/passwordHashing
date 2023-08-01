@@ -70,6 +70,9 @@ Successful Creation:
 Error Handling:
 ![alt text](./public/assets/images/error.png)
 
+Code Processing via Insomnia:
+![alt text](./public/assets/images/insomnia.png)
+
 ### Future Developments
 
 In the future, this code can be extended to implement user login functionality. By using bcrypt to hash and compare passwords during the login process, developers can ensure secure authentication.
