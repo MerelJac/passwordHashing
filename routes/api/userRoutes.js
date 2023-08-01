@@ -15,7 +15,8 @@ router.post('/', async (req, res) => {
         const userData = await User.create(newUser);
         res.status(200).json(userData)
     } catch(err) {
-        res.status(400).json(err)
+        // throw error is true so client side knows how to handle
+        res.status(400).json({ message: 'Error is true', err: true})
     }
 });
 
