@@ -62,13 +62,13 @@ To run this code, you need to have the following installed:
 
 Launch Page:
 
-![alt text](./public/assets/images/Screenshot%202023-07-31%20at%206.46.11%20PM.png)
+![alt text](./public/assets/images/launch.png)
 
 Successful Creation: 
-![alt text](./public/assets/images/Screenshot%202023-07-31%20at%206.48.11%20PM.png)
+![alt text](./public/assets/images/success.png)
 
 Error Handling:
-![alt text](./public/assets/images/Screenshot%202023-07-31%20at%206.47.33%20PM.png)
+![alt text](./public/assets/images/error.png)
 
 ### Future Developments
 
