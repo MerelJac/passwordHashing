@@ -82,7 +82,9 @@ logInForm.addEventListener('submit', (event) => {
             document.querySelector('#emailLogIn').value = '';
             document.querySelector('#passwordLogIn').value = '';
             alert.textContent = 'User logged in'
-            document.body.appendChild(alert);}
+            document.body.appendChild(alert);
+            window.location.href = '/api/loggedIn'
+        }
     }).catch((err) => {
         console.error(err);
         return
