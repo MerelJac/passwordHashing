@@ -3,10 +3,10 @@
     line-height: 2;
 }
 
-#password {
+.spaceBelow {
     margin-bottom: 30px;
 }
 
-input, #submit {
+input, .submit {
     border-radius: 10px;
 }
