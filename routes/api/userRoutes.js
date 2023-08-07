@@ -44,13 +44,14 @@ router.post('/login', async (req, res) => {
         if (!userEmail) {
             res.status(404).json({ message: 'No user with that email'})
         }
-        
-        // let decryptPassword = await bcrypt.compare(userData.password, req.body.password)
-        // console.log(decryptPassword)
-        res.status(200).json(userEmail)
-
+        let isValidPassword = await bcrypt.compare(req.body.password, userEmail.password);
+        if (!isValidPassword) {
+            res.status(401).json({message: 'Password not valid'})
+            return
+        }
+        res.status(200).json('User is logged in')
     } catch (err) {
-        res.status(400).json({ message: 'Error found', err: true})
+        res.status(400).json({ message: 'Error found', err})
     }
 })
 
