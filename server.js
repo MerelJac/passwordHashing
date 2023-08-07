@@ -3,7 +3,7 @@ const routes = require('./routes');
 const sequelize = require('./connection/connections');
 
 const app = express();
-const PORT = 3001;
+const PORT = 3002;
 
 //middleware
 app.use(express.json());
