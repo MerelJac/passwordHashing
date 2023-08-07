@@ -64,17 +64,27 @@ logInForm.addEventListener('submit', (event) => {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify(formDataLogIn)
-    }).then((response) => response.json())
+    }).then((response) => {
+        return response.json();
+    })
     .then((data) => {
-        if (data.err) {
+        console.log(data)
+        if (data.message === 'No user with that email') {
             alert.textContent = 'Unable to log in - please check credentials and try again';
             document.body.appendChild(alert);
             return
-        }
-        document.querySelector('#usernameLogIn').value = '';
-        document.querySelector('#emailLogIn').value = '';
-        document.querySelector('#passwordLogIn').value = '';
-        alert.textContent = 'User logged in'
-        document.body.appendChild(alert);
-    }).catch((err) => console.error(err))
+        } if (data.message === 'Password not valid'){
+            alert.textContent = 'Invalid password - please try again';
+            document.body.appendChild(alert);
+            return
+        } else {        
+            document.querySelector('#usernameLogIn').value = '';
+            document.querySelector('#emailLogIn').value = '';
+            document.querySelector('#passwordLogIn').value = '';
+            alert.textContent = 'User logged in'
+            document.body.appendChild(alert);}
+    }).catch((err) => {
+        console.error(err);
+        return
+    })
 })

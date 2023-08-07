@@ -49,7 +49,7 @@ router.post('/login', async (req, res) => {
             res.status(401).json({message: 'Password not valid'})
             return
         }
-        res.status(200).json('User is logged in')
+        res.status(200).json('User is logged')
     } catch (err) {
         res.status(400).json({ message: 'Error found', err})
     }
