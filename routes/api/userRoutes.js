@@ -14,14 +14,27 @@ router.post('/', async (req, res) => {
         // create newUser w the hashed password and save to DB
         const userData = await User.create(newUser);
         console.log(userData)
-        // req.session.save(() => {
-        //     req.session.loggedIn = true;})
-        // res.status(200).json(userData)
+        req.session.save(() => {
+            req.session.loggedIn = true;
+            req.session.username = userData.username})
+        res.status(200).json(userData)
     } catch(err) {
         // throw error is true so client side knows how to handle
         res.status(400).json({ message: 'Error is true', err: true})
     }
 });
+
+
+// verify all 
+router.get('/testing', async (req, res) => {
+    try {
+        console.log('testing', req.session);
+        res.render('all')
+
+    } catch (err) {
+        res.status(400).json({ message: 'Error found', err: true})
+    }
+})
 
 // verify & login
 router.get('/:id', async (req, res) => {
@@ -55,10 +68,11 @@ router.post('/login', async (req, res) => {
 
         // save to sessions
         req.session.save(() => {
+            req.session.loggedIn = true;
             req.session.username = userEmail.username
+            res.status(200).json('User is logged')
         })
 
-        res.status(200).json('User is logged')
 
     } catch (err) {
         res.status(400).json({ message: 'Error found', err})
