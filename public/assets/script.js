@@ -28,6 +28,7 @@ createUserForm.addEventListener('submit', (event) => {
     .then((data) => {
         if (data.err) {
             alert.textContent = 'Ooops! Email already exists - please try again.'
+            console.error(data.err)
             document.body.appendChild(alert);
             return
         } 

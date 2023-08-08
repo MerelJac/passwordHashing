@@ -1,8 +1,10 @@
 const router = require('express').Router();
 
 
+
 router.get('/',  (req, res) => {
-    res.render('all')   
+    console.log(`this is a test of loggedIn route ${req.session}`)
+    res.render('all', { username: req.session.username })   
 });
 
 

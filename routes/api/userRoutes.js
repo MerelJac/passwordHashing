@@ -14,7 +14,9 @@ router.post('/', async (req, res) => {
         // create newUser w the hashed password and save to DB
         const userData = await User.create(newUser);
         console.log(userData)
-        res.status(200).json(userData)
+        // req.session.save(() => {
+        //     req.session.loggedIn = true;})
+        // res.status(200).json(userData)
     } catch(err) {
         // throw error is true so client side knows how to handle
         res.status(400).json({ message: 'Error is true', err: true})
@@ -41,6 +43,7 @@ router.post('/login', async (req, res) => {
     try {
         const validateUserEmail = req.body.email;
         const userEmail = await User.findOne({where: {email: validateUserEmail}})
+
         if (!userEmail) {
             res.status(404).json({ message: 'No user with that email'})
         }
@@ -49,7 +52,14 @@ router.post('/login', async (req, res) => {
             res.status(401).json({message: 'Password not valid'})
             return
         }
+
+        // save to sessions
+        req.session.save(() => {
+            req.session.username = userEmail.username
+        })
+
         res.status(200).json('User is logged')
+
     } catch (err) {
         res.status(400).json({ message: 'Error found', err})
     }
